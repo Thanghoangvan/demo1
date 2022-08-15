@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANAGE PRODUCTS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+</head>
+<style>
+    table tr td {
+        font-family: 'Noto Serif', serif;
+        padding: 10px;
+        border: 1px solid white;
+        color: #3c7363;
+        background-color: #e8f1fd;
+    }
+    Img{ width : 100px;
+            height: 100px;
+            object-fit: cover;
+         background-color:cornsilk;
+        }
+
+
+    Main { display: flex; justify-content: center; 
+        /* background-color: rgb(64, 122, 202); */
+    }
+    
+    button { background-color: #14d9c5;
+        cursor: pointer;
+        color: white;
+        border: 0;
+        padding: 10px 20px;
+        border-radius: 5px;}
+        button:hover{
+            background-color: beige;
+            color: black;
+            box-shadow:  1px 2px 4px rgba(0, 0, 0, .5);
+            transition: 0.2s linear;
+        }
+
+    input {
+        width:300px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 0.2px solid black;
+    }
+    
+    .mainProducts{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+    .mainProducts p{
+        font-weight: 800;
+    }
+    body{
+        font-family: 'Noto Serif', serif;
+
+        background-color: #8fd9c4;
+        color: #3c7363;
+    }
+</style>
+<body>
+    
+    <h1 style="text-align: center;">PRODUCT LIST</h1>
+<main class="mainProducts">
+   
+    <div class="inputProducts">
+        <p>Enter name product: </p>
+        <input type="text" id="newP" placeholder="Tên sản phẩm">
+        <br> <span id="errorName" style="font-size: 10px; display:none; margin-left: 10px;">*Please enter name</span>
+        <p>Enter amount product: </p>
+        <input type="number" id="amountP" placeholder="Nhập số lượng" min="0">  <br>
+        <span id="errorAmount" style="font-size: 10px; display:none; margin-left: 10px;">*Please enter amount</span>
+        <!-- <input type="text" id="imageP" placeholder="Nhập link ảnh"> -->
+        <form action="" style="margin-bottom: 10px;">
+            <img src="" alt="" id="image" width="100px" height="100px" style="display: block; margin-bottom: 10px; background-color:#e8f1fd;">
+            <input type="file" name="" id="imageFile" accept="image/gif,image/png,image/jpeg" onchange="chooseFileCreate(this)" >
+        </form>
+        <button onclick="createNewProducts()">Create</button>
+        <button onclick="searchProducts()">Search</button>
+    </div>
+        <table class="listProducts">
+            <tr>
+                <td style="font-weight: 800; background-color:#027353; color: #e8f1fd;">Product name</td>
+                <td style="font-weight: 800;background-color:#027353; color: #e8f1fd;">Image</td>
+                <td style="font-weight: 800;background-color:#027353; color: #e8f1fd;">Amount</td>
+                <td style="font-weight: 800;background-color:#027353; color: #e8f1fd;">Action</td>
+            </tr>
+            <tbody id="products">
+    
+            </tbody>
+        </table>
+   
+
+
+</main>
+</body>
+</html>
+<script src="manageProducts.js"></script>
