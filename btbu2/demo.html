@@ -11,35 +11,31 @@
 </body>
 </html>
 <script>
-  let chuoi = "Aa11aA";
+  let chuoi = "Thang";
 
-function isPalindrome(str) {
-
-	let arr = str.split("");
-  
-  let firstCharacter = arr[0];
-  let lastCharactor = arr[arr.length-1];
-  
-	if (firstCharacter === lastCharactor) {
-    arr.shift();
-  	arr.pop();
-    if (isEnd(arr)) {
-	  	return true;
-	  } else {
-      let newStr = arr.join("");
-    	return isPalindrome(newStr);
+function check(str){
+  debugger;
+    let arr=str.split("");
+    let first=arr[0];
+    let last=arr[arr.length-1];
+    if(last==first){
+        arr.pop();
+        arr.shift()
+        if(isEnd(arr)){
+            return true;
+        }
+        else{
+            let newstr=arr.join("");
+             return check(newstr)
+        }
     }
-  }
-  
-  return false;
-    
+    else{
+        return false;
+    }
 }
-
-function isEnd(arr) {
-	return arr.length === 0 || arr.length === 1;
+ function isEnd(arr){
+    return arr.length===1 || arr.length===0;
 }
+console.log(check(chuoi))
 
-
-function main() {
-	console.log(isPalindrome(chuoi));
-}
+</script>
