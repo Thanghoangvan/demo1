@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+  let chuoi = "Aa11aA";
+
+function isPalindrome(str) {
+
+	let arr = str.split("");
+  
+  let firstCharacter = arr[0];
+  let lastCharactor = arr[arr.length-1];
+  
+	if (firstCharacter === lastCharactor) {
+    arr.shift();
+  	arr.pop();
+    if (isEnd(arr)) {
+	  	return true;
+	  } else {
+      let newStr = arr.join("");
+    	return isPalindrome(newStr);
+    }
+  }
+  
+  return false;
+    
+}
+
+function isEnd(arr) {
+	return arr.length === 0 || arr.length === 1;
+}
+
+
+function main() {
+	console.log(isPalindrome(chuoi));
+}
